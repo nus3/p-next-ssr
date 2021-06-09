@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "hex-ci.stylelint-plus",
+    "mikestead.dotenv",
+    "esbenp.prettier-vscode",
+    "bradlc.vscode-tailwindcss",
+    "42crunch.vscode-openapi",
+    "philosowaffle.openapi-designer",
+    "streetsidesoftware.code-spell-checker"
+  ]
+}

@@ -1,12 +1,23 @@
 {
+  "name": "p-next-ssr",
+  "version": "0.0.1",
+  "scripts": {
+    "setup": "yarn --frozen-lockfile --ignore-optional",
+    "dev": "next",
+    "build": "next build",
+    "start": "next start -p $PORT",
+    "typecheck": "tsc"
+  },
   "dependencies": {
     "next": "10.2.3",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "swr": "0.5.6"
   },
   "devDependencies": {
     "@types/node": "15.12.2",
     "@types/react-dom": "17.0.6",
     "typescript": "4.3.2"
-  }
+  },
+  "license": "MIT"
 }
