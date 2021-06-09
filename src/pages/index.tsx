@@ -1,6 +1,6 @@
 import { GetServerSideProps, NextPage } from 'next'
 
-const fetcher = (url: string) => fetch(url).then((res) => res.json())
+const getHello = () => fetch('http://localhost:3000/api/hello')
 
 interface IndexPageProps {
   data: {
@@ -16,7 +16,7 @@ const IndexPage: NextPage<IndexPageProps> = ({data}) => {
 export default IndexPage
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const res = await fetch('http://localhost:3000/api/hello')
+  const res = await getHello()
   const data = await res.json()
 
   return { props: { data } }
