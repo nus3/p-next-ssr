@@ -37,7 +37,7 @@ const IndexPage: NextPage<IndexPageProps> = ({ data }) => {
     <div>
       <h1>{data.message}</h1>
       {data.hadas.map((hada) => (
-        <div style={{ display: 'flex', gap: '10px' }}>
+        <div key={hada.id} style={{ display: 'flex', gap: '10px' }}>
           <p>Id: {hada.id}</p>
           <p>Name: {hada.name}</p>
           <p>Age: {hada.age}</p>
