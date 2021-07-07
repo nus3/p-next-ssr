@@ -36,7 +36,8 @@ const IndexPage: NextPage<IndexPageProps> = ({ data }) => {
 
   const handleGetHada = async () => {
     const res = await getHadas()
-    console.log({ res })
+    const resJson = await res.json()
+    console.log({ resJson })
   }
 
   return (
