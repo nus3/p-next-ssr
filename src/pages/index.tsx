@@ -1,6 +1,6 @@
 import { GetServerSideProps, NextPage } from 'next'
 import * as aws from 'aws-sdk'
-import { v4 as uuid } from 'uuid'
+// import { v4 as uuid } from 'uuid'
 
 const dynamodb = new aws.DynamoDB.DocumentClient({
   apiVersion: '2012-08-10',
@@ -10,7 +10,7 @@ const dynamodb = new aws.DynamoDB.DocumentClient({
 
 const TABLE_NAME = 'hada_test'
 
-type HadaData = {
+export type HadaData = {
   id: string
   age: number
   likeFood: string
@@ -18,6 +18,7 @@ type HadaData = {
 }
 
 const getHello = () => fetch('http://localhost:3000/api/hello')
+const getHadas = () => fetch('http://localhost:3000/api/hadas')
 const insertHada = () => fetch('http://localhost:3000/api/insert')
 
 interface IndexPageProps {
@@ -33,6 +34,11 @@ const IndexPage: NextPage<IndexPageProps> = ({ data }) => {
     await insertHada()
   }
 
+  const handleGetHada = async () => {
+    const res = await getHadas()
+    console.log({ res })
+  }
+
   return (
     <div>
       <h1>{data.message}</h1>
@@ -45,7 +51,10 @@ const IndexPage: NextPage<IndexPageProps> = ({ data }) => {
         </div>
       ))}
       <button type="button" onClick={handleInsertHada}>
-        インサートする
+        insert
+      </button>
+      <button type="button" onClick={handleGetHada}>
+        get
       </button>
     </div>
   )
