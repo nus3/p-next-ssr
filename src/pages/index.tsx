@@ -1,6 +1,6 @@
 import { GetServerSideProps, NextPage } from 'next'
 import * as aws from 'aws-sdk'
-// import { v4 as uuid } from 'uuid'
+import { v4 as uuid } from 'uuid'
 
 const dynamodb = new aws.DynamoDB.DocumentClient({
   apiVersion: '2012-08-10',
@@ -17,9 +17,11 @@ export type HadaData = {
   name: string
 }
 
-const getHello = () => fetch('http://localhost:3000/api/hello')
-const getHadas = () => fetch('http://localhost:3000/api/hadas')
-const insertHada = () => fetch('http://localhost:3000/api/insert')
+const baseUrl = 'https://33ueq3w7br.ap-northeast-1.awsapprunner.com/'
+
+const getHello = () => fetch(`${baseUrl}/api/hello`)
+const getHadas = () => fetch(`${baseUrl}/api/hadas`)
+const insertHada = () => fetch(`${baseUrl}/api/insert`)
 
 interface IndexPageProps {
   data: {
